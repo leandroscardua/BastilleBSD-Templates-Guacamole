@@ -16,13 +16,13 @@ CMD cp /tmp/guacamole-auth-jdbc-*/mysql/*.jar /usr/local/etc/guacamole-client/ex
 CMD cp /usr/local/etc/guacamole-server/guacd.conf.sample /usr/local/etc/guacamole-server/guacd.conf
 CMD cp /usr/local/etc/guacamole-client/logback.xml.sample /usr/local/etc/guacamole-client/logback.xml
 CMD cp /usr/local/etc/guacamole-client/guacamole.properties.sample /usr/local/etc/guacamole-client/guacamole.properties
-#CMD echo "mysql-hostname: $ipv4" >> /usr/local/etc/guacamole-client/guacamole.properties
+#CMD echo "mysql-hostname: " >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-port:     3306" >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-database: guacamole_db" >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-username: guacamole_user" >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-password: Gu@c2Mo1e" >> /usr/local/etc/guacamole-client/guacamole.properties
 SERVICE mysql-server start
-CMD mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gu@c2Mo1e';CREATE DATABASE guacamole_db;CREATE USER 'guacamole_user'@'${ipv4}' IDENTIFIED BY 'Gu@c2Mo1e';GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'${ipv4}';FLUSH PRIVILEGES;";
+CMD mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gu@c2Mo1e';CREATE DATABASE guacamole_db;CREATE USER 'guacamole_user'@'' IDENTIFIED BY 'Gu@c2Mo1e';GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'';FLUSH PRIVILEGES;";
 CMD cat /tmp/guacamole-auth-jdbc-*/mysql/schema/*.sql | mysql -u root -pGu@c2Mo1e guacamole_db
 
 SERVICE mysql-server restart
