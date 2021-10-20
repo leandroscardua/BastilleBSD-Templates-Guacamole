@@ -1,4 +1,3 @@
-#ARG HOST_RESOLV_CONF=/etc/resolv.conf
 PKG guacamole-server
 PKG guacamole-client
 PKG mysql80-server
