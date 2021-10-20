@@ -1,5 +1,4 @@
 ARG HOST_RESOLV_CONF=/etc/resolv.conf
-#INCLUDE default/base --arg HOST_RESOLV_CONF="${HOST_RESOLV_CONF}"
 PKG guacamole-server
 PKG guacamole-client
 PKG mysql80-server
@@ -7,7 +6,6 @@ PKG mysql-connector-java
 SYSRC guacd_enable=YES
 SYSRC tomcat9_enable=YES
 SYSRC mysql_enable=YES
-#CMD ipv4=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d:)
 CMD mkdir /usr/local/etc/guacamole-client/lib
 CMD mkdir /usr/local/etc/guacamole-client/extensions
 CMD cp /usr/local/share/java/classes/mysql-connector-java.jar /usr/local/etc/guacamole-client/lib
