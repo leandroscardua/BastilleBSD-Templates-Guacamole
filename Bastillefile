@@ -1,5 +1,5 @@
 ARG HOST_RESOLV_CONF=/etc/resolv.conf
-INCLUDE default/base --arg HOST_RESOLV_CONF="${HOST_RESOLV_CONF}"
+#INCLUDE default/base --arg HOST_RESOLV_CONF="${HOST_RESOLV_CONF}"
 PKG guacamole-server
 PKG guacamole-client
 PKG mysql80-server
