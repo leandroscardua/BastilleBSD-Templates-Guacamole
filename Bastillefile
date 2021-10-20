@@ -1,4 +1,4 @@
-ARG HOST_RESOLV_CONF=/etc/resolv.conf
+#ARG HOST_RESOLV_CONF=/etc/resolv.conf
 PKG guacamole-server
 PKG guacamole-client
 PKG mysql80-server
@@ -14,7 +14,6 @@ CMD cp /tmp/guacamole-auth-jdbc-*/mysql/*.jar /usr/local/etc/guacamole-client/ex
 CMD cp /usr/local/etc/guacamole-server/guacd.conf.sample /usr/local/etc/guacamole-server/guacd.conf
 CMD cp /usr/local/etc/guacamole-client/logback.xml.sample /usr/local/etc/guacamole-client/logback.xml
 CMD cp /usr/local/etc/guacamole-client/guacamole.properties.sample /usr/local/etc/guacamole-client/guacamole.properties
-#CMD echo "mysql-hostname: " >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-port:     3306" >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-database: guacamole_db" >> /usr/local/etc/guacamole-client/guacamole.properties
 CMD echo "mysql-username: guacamole_user" >> /usr/local/etc/guacamole-client/guacamole.properties
